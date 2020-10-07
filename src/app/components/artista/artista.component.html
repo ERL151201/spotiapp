@@ -45,7 +45,9 @@
                     <td>{{track.album.name}}</td>
                     <td>{{track.name}}</td>
                     <td>
-                        <audio [src]="track.preview_url" controls></audio>
+                        <!--<audio [src]="track.preview_url" controls></audio>-->
+                        <iframe [src]="track.uri | domseguro " width="250" height="90" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
                     </td>
                 </tr>
             </tbody>
