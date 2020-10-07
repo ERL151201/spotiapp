@@ -28,16 +28,19 @@ export class SpotifyService {
           .pipe( map(data => data['albums'].items));
 
    }
-   getArtista(termino: string){
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQB6ojfr3M6V32wRuMBj5uvnZurnNyNNLLw1fweD6ZIuTGkrSmd67qrSuG_9_QCUjOX49tOy5Q5R1Gyx8KOTxcL-vb3L5bSDXhZjMXa1Y3VK05USjwrxwTCjuzbC_0pEBk398KCrtJOleciB'
-  });
-    
-
+   getArtistas(termino: string){
   return this.getQuery(`search?query=${termino}&type=artist&offset=0&limit=15`)
              .pipe(map(data =>  data['artists'].items));
       
 
    }
+
+   getArtista(id: string){
+    return this.getQuery(`artists/${ id }`);
+               //.pipe(map(data =>  data['artists'].items));
+        
+  
+     }
+
 
 }
